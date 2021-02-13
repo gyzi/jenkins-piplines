@@ -1,0 +1,15 @@
+version: "3.0"
+services:
+  jenkins:
+    image: jenkins:latest
+    environment:
+      - JENKINS_HOME: /var/jenkins_home
+    volumes:
+      - jenkins-vol: /var/jenkins_home
+      - ./plugins.txt:  /usr/share/jenkins/plugins.txt
+    ports:
+      - 8000: 8080
+      - 50000: 50000
+
+volumes:
+  - jenkins-vol:
